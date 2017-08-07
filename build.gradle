@@ -1,0 +1,37 @@
+group 'org.perf'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url 'http://repository.jboss.org/nexus/content/groups/public-jboss/'}
+    mavenCentral()
+}
+
+configurations {
+    moduleJars
+}
+
+dependencies {
+    moduleJars group: 'org.fluentd', name: 'fluent-logger', version: '0.3.3'
+
+    compile configurations.moduleJars
+
+    compile group: 'org.jboss.logmanager', name: 'jboss-logmanager', version: '2.0.7.Final'
+    compile group: 'org.jboss.logging', name: 'jboss-logging', version: '3.3.1.Final'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+}
+
+jar {
+    doLast {
+        copy {
+            into "$buildDir/libs"
+            from configurations.moduleJars
+        }
+    }
+}
