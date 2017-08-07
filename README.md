@@ -25,8 +25,7 @@ A jboss-logging handler that sends log messages to fluentd
 ## Deploying
 the easiest way to deploy is through jboss-cli.
 Substitute ${PROJECT_HOME} with your actual path to the project
->
-module add --name=org.perf.fluentd.fluentdhandler \
+> module add --name=org.perf.fluentd.fluentdhandler \
   --resource-delimiter=, \
   --resources= \
       ${PROJECT_HOME}/build/libs/fluent-logger-0.3.3.jar, \
