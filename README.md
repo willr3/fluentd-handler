@@ -1,6 +1,5 @@
-#flutentdhandler
+# fluentd-handler
 A jboss-logging handler that sends log messages to fluentd
-
 
 ## Usage
 
